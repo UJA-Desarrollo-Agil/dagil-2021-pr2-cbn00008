@@ -138,3 +138,8 @@ The code, documentation, styles, design and images are all distributed
 under the MIT license. This permits you to modify and use them, even
 for commercial use. A copy of the MIT license is found in the LICENSE
 file.
+
+##Trello
+Inicio del trello
+![image](https://user-images.githubusercontent.com/78795117/110204580-ff083980-7e73-11eb-81b4-5e57d1a38789.png)
+
