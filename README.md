@@ -143,3 +143,5 @@ file.
 Inicio del trello
 ![image](https://user-images.githubusercontent.com/78795117/110204580-ff083980-7e73-11eb-81b4-5e57d1a38789.png)
 
+Uso de trello con Telegram
+![image](https://user-images.githubusercontent.com/78795117/110242313-cccf0880-7f55-11eb-8555-cecd7e3df3be.png)
