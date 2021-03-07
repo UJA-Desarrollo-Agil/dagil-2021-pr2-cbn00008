@@ -146,3 +146,6 @@ Inicio del trello
 ##Uso de trello con Telegram
 
 ![image](https://user-images.githubusercontent.com/78795117/110242313-cccf0880-7f55-11eb-8555-cecd7e3df3be.png)
+
+Domingo 7 de Marzo (Avance de Trello)
+![image](https://user-images.githubusercontent.com/78795117/110242567-f2a8dd00-7f56-11eb-9337-a577c401e63b.png)
