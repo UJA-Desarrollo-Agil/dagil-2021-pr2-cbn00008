@@ -144,7 +144,7 @@ file.
 #Titulo: EnBuscaDeNestleJungly.
 #Realizado por: Carlos Barrigas Núñez.
 
-Trello
+# Trello
 Uso y Sincronización de  Trello con Telegram
 
 ![image](https://user-images.githubusercontent.com/78795117/110242313-cccf0880-7f55-11eb-8555-cecd7e3df3be.png)
@@ -155,8 +155,9 @@ Inicio del Trello
 Domingo 7 de Marzo (Avance de Trello)
 ![image](https://user-images.githubusercontent.com/78795117/110242567-f2a8dd00-7f56-11eb-9337-a577c401e63b.png)
 
-GitHub
+# GitHub
 
 Uso y Sincronización de GitHub con Telegram.
-![github](https://user-images.githubusercontent.com/78795117/110848355-49dbe400-82ae-11eb-91ae-0b4428261b79.PNG)
+![image](https://user-images.githubusercontent.com/78795117/110850657-55300f00-82b0-11eb-833b-f6dff4fc122c.PNG)
+
 
