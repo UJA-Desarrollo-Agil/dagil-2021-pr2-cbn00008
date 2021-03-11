@@ -139,23 +139,24 @@ under the MIT license. This permits you to modify and use them, even
 for commercial use. A copy of the MIT license is found in the LICENSE
 file.
 
-Práctica 2 de Desarrollo Ágil.
-Juego Realizado en Undum.
-Titulo: EnBuscaDeNestleJungly.
-Realizado por: Carlos Barrigas Núñez.
+#Práctica 2 de Desarrollo Ágil.
+#Juego Realizado en Undum.
+#Titulo: EnBuscaDeNestleJungly.
+#Realizado por: Carlos Barrigas Núñez.
 
 ##Trello
-Inicio del trello
-![image](https://user-images.githubusercontent.com/78795117/110204580-ff083980-7e73-11eb-81b4-5e57d1a38789.png)
-
 ##Uso y Sincronización de  Trello con Telegram
 
 ![image](https://user-images.githubusercontent.com/78795117/110242313-cccf0880-7f55-11eb-8555-cecd7e3df3be.png)
+
+Inicio del Trello
+![image](https://user-images.githubusercontent.com/78795117/110204580-ff083980-7e73-11eb-81b4-5e57d1a38789.png)
 
 Domingo 7 de Marzo (Avance de Trello)
 ![image](https://user-images.githubusercontent.com/78795117/110242567-f2a8dd00-7f56-11eb-9337-a577c401e63b.png)
 
 ##GitHub
-#Uso y Sincronización de GitHub con Telegram.
+
+Uso y Sincronización de GitHub con Telegram.
 ![github](https://user-images.githubusercontent.com/78795117/110848355-49dbe400-82ae-11eb-91ae-0b4428261b79.PNG)
 
