@@ -141,13 +141,14 @@ file.
 
 # Práctica 2 de Desarrollo Ágil.
 
-##Juego Realizado en Undum.
+Juego Realizado en Undum.
 
-##Titulo: EnBuscaDeNestleJungly.
+Titulo: EnBuscaDeNestleJungly.
 
-##Realizado por: Carlos Barrigas Núñez.
+Realizado por: Carlos Barrigas Núñez.
 
 # Trello
+
 Uso y Sincronización de  Trello con Telegram
 
 ![image](https://user-images.githubusercontent.com/78795117/110242313-cccf0880-7f55-11eb-8555-cecd7e3df3be.png)
