@@ -140,9 +140,12 @@ for commercial use. A copy of the MIT license is found in the LICENSE
 file.
 
 # Práctica 2 de Desarrollo Ágil.
-Juego Realizado en Undum.
-Titulo: EnBuscaDeNestleJungly.
-Realizado por: Carlos Barrigas Núñez.
+
+##Juego Realizado en Undum.
+
+##Titulo: EnBuscaDeNestleJungly.
+
+##Realizado por: Carlos Barrigas Núñez.
 
 # Trello
 Uso y Sincronización de  Trello con Telegram

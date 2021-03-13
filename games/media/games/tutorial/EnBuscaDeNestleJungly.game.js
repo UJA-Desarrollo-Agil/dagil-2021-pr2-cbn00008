@@ -29,21 +29,10 @@ undum.game.slideUpSpeed = 500
 /* The situations that the game can be in. Each has a unique ID. */
 undum.game.situations = {
     start: new undum.SimpleSituation(
-        "<h1>Starting Out with Undum</h1>\
-        <img src='media/games/tutorial/woodcut1.png' class='float_right'>\
-        <p>Welcome to the Undum tutorial. Undum is a tool for writing\
-        hypertext interactive fiction. It has some unique features\
-        and a visual design that encourages narrative games.</p>\
-        \
-        <p>Hypertext interactive fiction is the digital equivalent of the\
-        Choose Your Own Adventure (CYOA) books that were popular in the\
-        1980s. The story is told in chunks, and you select from a range\
-        of options to move it forward. Unlike the book form, however, the\
-        digital form gives you far more flexibility to tell rich stories\
-        and introduce more interesting game elements.</p>\
-        \
-        <p class='transient'>Click <a href='hub'>this link to\
-        continue...</a></p>"
+        "<h1>Inicio de la Aventura</h1>\
+        <img src='media/games/tutorial/puerta.jpg' class='float_left'>\
+        <p>Buenos dias tito Carlos, levantate ya. Quiero Nestle Jungly!! -Dice mi sobrina con mucha energía para despertarme-</p>\
+        <p><a href='hub'>Click para continuar esta aventura.</a></p>"
     ),
 
     // NB: The 'hub' situation which is the main list of topics, is
@@ -62,13 +51,8 @@ undum.game.situations = {
         optionText: "What Undum Games are Made Of",
         displayOrder: 1
     }),
-    todo: new undum.SimpleSituation(
-        "<p>Two things can happen in a situation. The character either\
-        <a href='links'>leaves</a> the situation and enters another one, or\
-        they carry out some <a href='./do-something'>action</a>. Actions may\
-        perform some processing, they may display some results, but\
-        ultimately they put the character back into the same situation\
-        again.</p>\
+    dormido: new undum.SimpleSituation(
+        "<p>Continuo dormido escuchando a Carla de fondo llorar y gritar.</p>\
         \
         <p>When you are designing your game, use situations to reflect a\
         change in what the character can do. So you would change situation if\
@@ -76,19 +60,6 @@ undum.game.situations = {
         are intended for situations where the character can examine things\
         more closely, or maybe top up their magic by drinking a potion.\
         Things that don't affect the state of the world around them.</p>\
-        \
-        <p>Situations generate content when they are <em>enter</em>ed,\
-        <em>exit</em>ed, and when they receive an <em>act</em>ion (the\
-        italicised words are the names of the three methods that do this).\
-        You can write code to generate content in any way you like, so the\
-        content that is displayed can be totally dynamic: taking into\
-        account the current state of the character.\
-        Content is just plain HTML, so you use regular HTML tags to make\
-        things <strong>bold</strong> or <em>italic</em>, or to include\
-        images. This gives you a lot of flexibility. For example, since Undum\
-        targets HTML5 browsers, you could use the <em>audio</em> or\
-        <em>video</em> tags to include rich media.</p>\
-        \
         <p class='transient'>Make sure you've carried out the action above,\
         then <a href='hub'>return to the topic list</a>.</p>",
         {
@@ -422,7 +393,7 @@ undum.game.situations = {
         <p>I've added an\
         inspiration quality to your character list. Its time for you to\
         crack open the game file and write your own story.</p>\
-        <h1>The End</h1>",
+        <h1>Fin de la Aventura.</h1>",
         {
             tags: ["topic"],
             optionText: "Finish the Tutorial",
@@ -446,23 +417,16 @@ undum.game.start = "start";
  * possess. We don't have to be exhaustive, but if we miss one out then
  * that quality will never show up in the character bar in the UI. */
 undum.game.qualities = {
-    skill: new undum.IntegerQuality(
-        "Skill", {priority:"0001", group:'stats'}
+    Sueño: new undum.IntegerQuality(
+        "Sueño", {priority:"0001", group:'stats'}
     ),
-    stamina: new undum.NumericQuality(
-        "Stamina", {priority:"0002", group:'stats'}
+    Suerte: new undum.NumericQuality(
+        "Suerte", {priority:"0002", group:'stats'}
     ),
     luck: new undum.FudgeAdjectivesQuality( // Fudge as in the FUDGE RPG
-        "<span title='Skill, Stamina and Luck are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Luck</span>",
+        "<span title='Sueño and suerte are reverently borrowed from the Fighting Fantasy series of gamebooks. The words representing Luck are from the FUDGE RPG. This tooltip is illustrating that you can use any HTML in the label for a quality (in this case a span containing a title attribute).'>Luck</span>",
         {priority:"0003", group:'stats'}
     ),
-
-    inspiration: new undum.NonZeroIntegerQuality(
-        "Inspiration", {priority:"0001", group:'progress'}
-    ),
-    novice: new undum.OnOffQuality(
-        "Novice", {priority:"0002", group:'progress', onDisplay:"&#10003;"}
-    )
 };
 
 // ---------------------------------------------------------------------------
@@ -480,10 +444,8 @@ undum.game.qualityGroups = {
 /* This function gets run before the game begins. It is normally used
  * to configure the character at the start of play. */
 undum.game.init = function(character, system) {
-    character.qualities.skill = 12;
-    character.qualities.stamina = 12;
-    character.qualities.luck = 0;
-    character.qualities.novice = 1;
-    character.qualities.inspiration = 0;
-    system.setCharacterText("<p>You are starting on an exciting journey.</p>");
+    character.qualities.Sueño = 999;
+    character.qualities.Suerte = 0;
+
+    system.setCharacterText("<p>ESTADO DE ÁNIMO </p>");
 };
