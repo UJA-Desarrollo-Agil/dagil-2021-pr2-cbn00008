@@ -4,3 +4,8 @@
 	padding-top: 0.7em;
 	padding-bottom: 0.7em;
 }
+
+.centrado{
+display:block;
+margin:auto;
+}
