@@ -147,6 +147,9 @@ Titulo: EnBuscaDeNestleJungly.
 
 Realizado por: Carlos Barrigas Núñez.
 
+Trello: https://trello.com/b/KGevaREp/practica2dagil
+
+
 # Trello
 
 Uso y Sincronización de  Trello con Telegram

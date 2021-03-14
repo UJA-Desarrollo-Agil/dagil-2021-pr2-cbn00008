@@ -16,7 +16,7 @@ margin:auto;
 
 .opciones{
 
-  background-color: rgba( 0,0,0,.2);
+  background-color: rgba( 0,0,0,.1);
   color: black;
   font-weight: bold;
 }
@@ -24,4 +24,10 @@ margin:auto;
 .error{
 	color:red;
 	font-weight:bold;
+}
+
+.pensando{
+	font-family:monospace;
+	font-size: 0.8em;
+
 }

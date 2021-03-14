@@ -62,7 +62,7 @@ undum.game.situations = {
         <p class='opciones'> <a href='desayuno'>Voy a desayunar.</a></p>",
         {
            enter: function (character, system, from){
-             system.setCharacterText("<p> Tengo sueño </p>");
+             system.setCharacterText("<p> Tengo sueño. </p>");
                system.setQuality("Sueño", 100);
            }
 
@@ -97,6 +97,7 @@ undum.game.situations = {
 
            enter: function (character, system, from){
                system.setQuality("Sueño", 0);
+               system.setCharacterText("<p>Ya estoy mejor.</p>");
            }
        },
 
@@ -120,41 +121,77 @@ undum.game.situations = {
             system.setQuality("Cartera",true);
           },
            'salir': function enter(character,system,action){
-              if(system.character.qualities.LlaveCasa){
-              system.write("<p class='dialogo'>Carla quedate aqui. *Digo mientras cierro la puerta </p>");
-            }else{
-              system.write("<p> Te falta algo, compruebalo. </p>");
-            }
+             if(character.qualities.LlaveCasa && character.qualities.Cartera){
+            system.write("<p class='dialogo'>Carla quedate aqui. *Digo mientras cierro la puerta </p>");
+            system.doLink( "supermercado" );
+          }else{
+            system.write("<p> Te falta algo... Compruebalo anda.</p>");
           }
+
         }
 
       }
+    }
+
     ),
 
     supermercado: new undum.SimpleSituation(
-      "<p>Vamos hacia el primer supermercado en busca del nuevo NestleJungly anunciado en televisión. </p>",
+      "<p>Voy hacia el primer supermercado (Lidl) en busca del nuevo NestleJungly anunciado en televisión. </p>\
+        <img src='media/games/tutorial/lidl.jpeg' class='centrado'>\
+      <p><a href= './mirar-pasillodulces'>Mirar en el Pasillo de los Dulces</a> o <a href= './preguntarencargado'>Preguntar al encargado</a> </p>",
       {
         actions: {
           'mirar-pasillodulces': function enter(character,system,action){
-            system.write("<p> Caminas hacia ese pasillo y compruebas si hay NestleJungly. Por desgracia no hay ninguna tableta");
+            system.write("<p> Caminas hacia ese pasillo y compruebas si hay NestleJungly. Por desgracia no hay ninguna tableta</p>");
 
           },
           'preguntarencargado': function enter(character,system,action){
-            system.write("<p class='dialogo' Hola buenas, ¿hay NestleJungly? Lo he visto anunciado hoy en la tele *Digo entusiasmado*");
-            system.write("<p> class='dialogo' No, lo siento. Se han llevado 100 tabletas en 1h. *Dice sorprendido*")
-          },
-        },
-      },
+            system.write("<p class='dialogo'> Hola buenas, ¿hay NestleJungly? Lo he visto anunciado hoy en la tele *Digo entusiasmado*</p>");
+            system.write("<p class='dialogo'> No, lo siento. Se han llevado 100 tabletas en 1h. *Dice sorprendido*</p>");
+            system.write("<p> </p>");
+            system.doLink("supermercado2");
+          }
+        }
+      }
 
     ),
 
     supermercado2: new undum.SimpleSituation(
-      "<p>prueba</p>"
+      "<p>Vamos hacia el siguiente supermercado (Mercadona) en busca del NestleJungly... aunque empiezo a sospechar que será dificil de conseguir</p>\
+        <img src='media/games/tutorial/mercadona.jpg' class='centrado'>\
+      <p class='pensando'> Empiezo a estar cansado... como puede ser que el Lidl no tenga... </p>\
+      <p> Busco dentro del Mercadona y solo queda una tableta... </p>\
+      <p>Tenemos dos opciones: <a href= './correr'> Correr como un conejo</a> o <a href= './andar'> Andar como una tortuga</a></p>",
+
+      {
+        actions: {
+        'correr': function enter(character,system,action){
+          system.write("<p> Corres por todo el Mercadona quedando un poco en ridiculo pero consigues el Nestle Jungly por fin!</p>");
+          system.setQuality("NestleJungly",true);
+          system.setCharacterText("<p>ALEGRE Y AFORTUNADO</p>");
+          system.setQuality("Suerte",1000);
+          system.doLink("final");
+
+        },
+        'andar': function enter(character,system,action){
+          system.write("<p>Con la vergüenza ni se como ni se almuerza... te quedaste sin NestleJungly.</p>");
+          system.setCharacterText("<p>Decepcionado</p>");
+          system.setQuality("Suerte",-500);
+          system.doLink("finalalternativo");
+        }
+      }
+    }
     ),
 
-    cansancio: new undum.SimpleSituation(
-      "<p> Comienzas a cansarte de tanto buscar </p>"
+    final: new undum.SimpleSituation(
+      "<h1>Fin de la Aventura</h1>\
+      <p> Contento y feliz vuelves a tu casa... que solo está al lado de la Catedral de Jaén... con unas cuestas muy bonitas.</p>\
+        <img src='media/games/tutorial/catedral.jpg' class='centrado'>"
+    ),
 
+    finalalternativo: new undum.SimpleSituation(
+      "<h1>Fin de la Aventura</h1>\
+      <p> Vuelves a casa sin NestleJungly... Tu mañana de sábado está perdida y todavía tienes que terminar la práctica de Ágil.</p>"
     ),
 
 };
