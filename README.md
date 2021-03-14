@@ -162,6 +162,10 @@ Inicio del Trello
 Domingo 7 de Marzo (Avance de Trello)
 ![image](https://user-images.githubusercontent.com/78795117/110242567-f2a8dd00-7f56-11eb-9337-a577c401e63b.png)
 
+Domingo 14 de Marzo (Finalización del Trello)
+![TrelloFinal](https://user-images.githubusercontent.com/78795117/111085208-a0e3f200-8516-11eb-94fe-b9cd2d2998b6.PNG)
+
+
 # GitHub
 
 Uso y Sincronización de GitHub con Telegram.
