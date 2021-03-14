@@ -9,3 +9,19 @@
 display:block;
 margin:auto;
 }
+
+.texto-principal{
+	font-style: monaco;
+}
+
+.opciones{
+
+  background-color: rgba( 0,0,0,.2);
+  color: black;
+  font-weight: bold;
+}
+
+.error{
+	color:red;
+	font-weight:bold;
+}

@@ -35,8 +35,8 @@ undum.game.situations = {
         <p class ='dialogo'>- Buenos dias tito Carlos, levantate ya. Quiero Nestle Jungly!! *Dice mi sobrina ilusionada* \
         <p class = 'dialogo'>- Carla... que son las 9 de la mañana... dejame dormir un poquito más. *Me doy la vuelta*</p>\
         <p> Que debería hacer? </p>\
-        <p> <a href='dormido'>Continuar dormido.</a></p>\
-        <p> <a href='levantarse'>Levantarse.</a></p>"
+        <p class='opciones'> <a href='dormido'>Continuar dormido.</a></p>\
+        <p class='opciones'> <a href='levantarse'>Levantarse.</a></p>"
     ),
 
     // NB: The 'hub' situation which is the main list of topics, is
@@ -51,34 +51,105 @@ undum.game.situations = {
     dormido: new undum.SimpleSituation(
         "<p>Continuo dormido mientras escucho a Carla de fondo llorar y gritar.</p>\
         <img src='media/games/tutorial/gameover.jpg' class='centrado'>\
-        <p>Asi no se comienza una historia, dormilon. Vuelve a probar anda.</p>"
+        <p class='error'>Asi no se comienza una historia, dormilon. Vuelve a probar anda.</p>\
+        <p class='opciones'> <a href='levantarse'>Levantarse.</a></p>"
 
     ),
 
     levantarse: new undum.SimpleSituation(
-        "<p>Comienzas el día. Tienes mucho sueño pero tu sobrina te necesita y tienes que ser un buen aventurero. </p>\
-        character.qualities.Sueño= 999; \
-        <p>If you've been watching carefully, you will have noticed that\
-        parts of the text have been disappearing when you move between</p>"
+        "<p>Comienzas el día. Tienes mucho sueño pero tu sobrina te necesita y tienes que ser un buen Tito. </p>\
+        <p class='opciones'><a href='comprar'>Voy a comprar.</a></p>\
+        <p class='opciones'> <a href='desayuno'>Voy a desayunar.</a></p>",
+        {
+           enter: function (character, system, from){
+             system.setCharacterText("<p> Tengo sueño </p>");
+               system.setQuality("Sueño", 100);
+           }
+
+       },
+
+
+
+    ),
+
+    comprar: new undum.SimpleSituation(
+        "<p class='texto-principal'>No es la mejor de las opciones. Tu sueño aumenta y caes dormido en mitad de la calle.</p>",
+        {
+           enter: function (character, system, from){
+               system.setCharacterText("<p> Te has dormido en la calle. Has muerto. </p>")
+               system.setQuality("Sueño", 999);
+           }
+       },
 
     ),
 
     desayuno: new undum.SimpleSituation(
-        "<p>Vas hacia la cocina y coges un café para quitarte el sueño que tienes. Así no hay quien recorra supermercados andando.</p>"
+        "<p class='texto-principal'>Vas hacia la cocina y coges un café para quitar el sueño. Bendito café\
+          <img src='media/games/tutorial/cafe.jpg' class='centrado'> Despues de ese cafe, Que podría hacer?.\
+          <p class='opciones'> <a href='pasillo'>Ir al pasillo.</a></p>\
+          <p class='opciones'> <a href= './vertele'> Ir al salon y ver la tele. </a></p>",
+          {
+          actions: {
+            'vertele': function enter(character,system,action){
+              system.write("<p>No estás siendo buen aventurero... deja de hacer el vago</p>.");
+            },
+          },
+
+           enter: function (character, system, from){
+               system.setQuality("Sueño", 0);
+           }
+       },
 
     ),
 
+    pasillo: new undum.SimpleSituation(
+      "<p> Estoy en el pasillo y compruebo el mueble.</p>\
+      <p class='opciones'> <a href= './coger-llave'>Buscar la llave</a></p>\
+      <p class='opciones'> <a href= './coger-cartera'>Buscar la cartera</a></p>\
+      <p class='opciones'> <a href= './salir'>Salir a la calle</a></p>",
+
+      {
+       actions: {
+         'coger-llave': function enter(character,system,action){
+           system.write("<p>Observas la llave encima del mueble y la coges</p>");
+           system.setQuality("LlaveCasa",true);
+
+         },
+          'coger-cartera': function enter(character,system,action){
+            system.write("<p> Coges la cartera y compruebas que tiene dinero. Vale, tengo dinero suficiente. </p>");
+            system.setQuality("Cartera",true);
+          },
+           'salir': function enter(character,system,action){
+              if(system.character.qualities.LlaveCasa){
+              system.write("<p class='dialogo'>Carla quedate aqui. *Digo mientras cierro la puerta </p>");
+            }else{
+              system.write("<p> Te falta algo, compruebalo. </p>");
+            }
+          }
+        }
+
+      }
+    ),
+
     supermercado: new undum.SimpleSituation(
-      "<p>Vamos hacia el primer supermercado en busca del nuevo NestleJungly anunciado en televisión. </p>"
+      "<p>Vamos hacia el primer supermercado en busca del nuevo NestleJungly anunciado en televisión. </p>",
+      {
+        actions: {
+          'mirar-pasillodulces': function enter(character,system,action){
+            system.write("<p> Caminas hacia ese pasillo y compruebas si hay NestleJungly. Por desgracia no hay ninguna tableta");
+
+          },
+          'preguntarencargado': function enter(character,system,action){
+            system.write("<p class='dialogo' Hola buenas, ¿hay NestleJungly? Lo he visto anunciado hoy en la tele *Digo entusiasmado*");
+            system.write("<p> class='dialogo' No, lo siento. Se han llevado 100 tabletas en 1h. *Dice sorprendido*")
+          },
+        },
+      },
 
     ),
 
     supermercado2: new undum.SimpleSituation(
       "<p>prueba</p>"
-    ),
-
-    supermercado3: new undum.SimpleSituation(
-      "<p>prueba2</p>"
     ),
 
     cansancio: new undum.SimpleSituation(
@@ -110,10 +181,10 @@ undum.game.qualities = {
       "NestleJungly",{priority:"0001",group:'Inventario', onDisplay:"&#10003;"}
     ),
     LlaveCasa: new undum.OnOffQuality(
-      "NestleJungly",{priority:"0001",group:'Inventario', onDisplay:"&#10003;"}
+      "LlaveCasa",{priority:"0001",group:'Inventario', onDisplay:"&#10003;"}
     ),
-    Cartera: new undum.NumericQuality(
-      "Cartera",{priority:"0001",group:'Inventario'}
+    Cartera: new undum.OnOffQuality(
+      "Cartera",{priority:"0001",group:'Inventario', onDisplay:"&#10003;"}
     )
 
 };
@@ -136,9 +207,11 @@ undum.game.init = function(character, system) {
     character.qualities.Sueño = 0;
     character.qualities.Suerte = 0;
     character.qualities.Cansancio = 0;
-    character.qualities.Cartera = 30;
-    character.qualities.NestleJungly = false;
+    character.qualities.Cartera = false;
     character.qualities.LlaveCasa= false;
+    character.qualities.NestleJungly = false;
 
+
+    system.setCharacterText("Comienza tu aventura");
 
 };
